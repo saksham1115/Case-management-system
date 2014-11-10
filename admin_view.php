@@ -20,5 +20,6 @@ while($rows = mysql_fetch_assoc($value)){
 	echo "</p>";
 }
 ?>
+<a href = "admin.php">click to go back</a>
 </body>
 </html>
