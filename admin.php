@@ -32,6 +32,9 @@ echo "hello ".$_SESSION['username'];
 echo "<br>";
 echo "<a href='logout.php'>Logout</a>";
 ?>
-<a href='admin_view.php'>CLick here to view</a> 
+<br />
+<a href='admin_view.php'>CLick here to view</a> <br />
+<a href='admin_delete.php'>Click here to delete</a><br />
+<a href='admin_update.php'>Click here to update</a><br />
 </body>
 </html>

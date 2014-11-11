@@ -1,6 +1,5 @@
 <?php
 session_start();
-require("check_login.php");
 $login = $_POST['login_type'];
 $username = $_POST['username'];
 $password = $_POST['password'];
