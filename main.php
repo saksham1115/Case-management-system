@@ -5,7 +5,7 @@ require("check_login.php");
 echo "hello ".$_SESSION['username'];
 echo "<br>";
 echo "<a href='logout.php'>Logout</a>";
-$columns = ['id','name','email_id','license_no','employement','date_of_joining'];
+$columns = ['id','name','email_id','license_no','employment','date_of_joining'];
 $numFields = count($columns);
 $id = $_SESSION['username'];
 $sql = "SELECT * FROM LAWYER WHERE id = '$id'";

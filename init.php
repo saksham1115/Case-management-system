@@ -18,7 +18,7 @@ if( mysql_errno() == 0 || mysql_errno() == 1007){
 		   'email_id VARCHAR(30) NOT NULL, '.
 		   'password VARCHAR(30) NOT NULL, '.
 		   'license_no VARCHAR(30) NOT NULL, '.
-		   'employement VARCHAR(30) NOT NULL, '.
+		   'employment VARCHAR(30) NOT NULL, '.
 		   'date_of_joining DATE NOT NULL, '.
 		   'primary key (id))';
 	$value = mysql_query($sql,$conn);

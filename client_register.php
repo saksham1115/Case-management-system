@@ -22,6 +22,12 @@ $sql = "INSERT INTO CLIENT (id,lawyer_id,case_id,password,name,address,email_id,
 $value = mysql_query($sql,$conn);
 $sql = "INSERT INTO CASES (id,lawyer_id,client_id,type,name) VALUES ('$case_id','$lawyer','$client','$type','$case_name')";
 $value = mysql_query($sql,$conn);
+$sql = "INSERT INTO CASE_HISTORY (case_id,case_history) VALUES ('$case_id','To be added by lawyer')";
+$value = mysql_query($sql,$conn);
+$sql = "INSERT INTO CASE_STATUS (case_id,status) VALUES ('$case_id','PENDING')";
+$value = mysql_query($sql,$conn);
+$sql = "INSERT INTO CASE_VERDICT (case_id,lawyer_id,verdict) VALUES ('$case_id','$lawyer','TO BE DECIDED')";
+$value = mysql_query($sql,$conn);
 $_SESSION['case_id'] = $case_id;
 $_SESSION['client'] = $client;
 }
