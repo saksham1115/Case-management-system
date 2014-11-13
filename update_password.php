@@ -24,15 +24,68 @@ if(isset($_POST['curr_pass'])){
 	echo mysql_error();
 }
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<title>Legally Right | Admin</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+    body{
+    	padding-top: 70px;
+    }
+</style>
 </head>
 <body>
-<form method = 'POST' action = '<?php $_PHP_SELF ?>'>
-Enter current password:<input name = 'curr_pass' type = 'text'><br />
-Enter new password: <input name = 'new_pass' type = 'text'><br />
-Re-enter new password: <input name = 're_pass' type = 'text'><br />
-<input type = 'submit'>
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+         <!-- Brand and toggle get grouped for better mobile display -->
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Legally Right | Admin</a>
+           </div>
+           <div class="collapse navbar-collapse" id="navbarCollapse">
+               <ul class="nav navbar-nav">
+                  <li><a href="main.php" >Home</a></li>
+                  <li><a href="client_register.php" >Register Your Client</a></li>
+                  <li class="active"><a href="update_password.php">Change Password</a></li>
+                  <li><a href="update_case.php" >Update Case History</a></li>
+                  <li><a href="billing.php" >Enter Billing Details</a></li>
+                  <li><a href="set_hearing.php">Enter Hearing Date</a></li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+            </div>
+         </div>
+      </nav>>
+</nav>
+<div class="container">
+	<div class="jumbotron">
+		<h3>Delete your Lawyer</h3>
+	</div>
+	<div class="control-label col-xs-8">
+			<form method="POST" class='form-horizontal' action="<?php $_PHP_SELF ?>">
+                  <div class='form-group'>
+<label class="control-label col-xs-4">Enter current password:</label><div class="col-xs-8"><input class="form-control" name = 'curr_pass' type = 'password'><br />
+</div></div>
+<div class='form-group'>
+<label class="control-label col-xs-4">Enter new password:</label><div class="col-xs-8"> <input class="form-control" name = 'new_pass' type = 'password'><br />
+</div></div><div class='form-group'>
+<label class="control-label col-xs-4">Re-enter new password:</label><div class="col-xs-8"> <input class="form-control" name = 're_pass' type = 'password'><br />
+</div></div>
+<div class = "control-label col-xs-5"></div>
+	<div class = "control-label col-xs-2">
+	<button type="submit" formaction="<?php $_PHP_SELF ?>" class="btn btn-primary">Submit</button>		
+	</div>
 </form>
 </body>
 </html>

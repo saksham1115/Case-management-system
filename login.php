@@ -9,17 +9,17 @@ $sql = "SELECT username,password FROM ADMIN WHERE username = '$username'";
 $value = mysql_query($sql,$conn);
 $row = mysql_fetch_assoc($value);
 if (!mysql_num_rows($value)){
-	echo "login failed";
-	echo "<a href='index.php'>CLick here</a>";
+	$_SESSION['a']=1;
+	header('Location:index.php');
 }
 else {
 	if($username != $row['username']){
-		echo "login failed";
-		echo "<a href='index.php'>CLick here</a>";
+		$_SESSION['a']=1;
+		header('Location:index.php');
 	}
 	elseif($password != $row['password']){
-		echo "login failed";
-		echo "<a href='index.php'>CLick here</a>";
+		$_SESSION['a']=1;
+		header('Location:index.php');
 	}
 	else{
 		$_SESSION['logged_in'] = 1;
@@ -33,17 +33,17 @@ elseif ($login == "lawyer"){
 	$value = mysql_query($sql,$conn);
 	$row = mysql_fetch_assoc($value);
 	if (!mysql_num_rows($value)){
-		echo "login failed";
-		echo "<a href='index.php'>CLick here</a>";
+		$_SESSION['a']=1;
+		header('Location:index.php');
 	}
 	else {
 		if($username != $row['id']){
-			echo "login failed";
-			echo "<a href='index.php'>CLick here</a>";
+			$_SESSION['a']=1;
+		header('Location:index.php');
 		}
 		elseif($password != $row['password']){
-			echo "login failed";
-			echo "<a href='index.php'>CLick here</a>";
+			$_SESSION['a']=1;
+		header('Location:index.php');
 		}
 		else{
 			$_SESSION['logged_in'] = 2;
@@ -53,25 +53,25 @@ elseif ($login == "lawyer"){
 	}
 }
 else{
-	$sql = "SELECT id,password FROM Client WHERE id = '$username'";
+	$sql = "SELECT id,password,lawyer_id FROM CLIENT WHERE id = '$username'";
 	$value = mysql_query($sql,$conn);
 	$row = mysql_fetch_assoc($value);
 	if (!mysql_num_rows($value)){
-		echo "login failed";
-		echo "<a href='index.php'>CLick here</a>";
+		$_SESSION['a']=1;
 	}
 	else {
 		if($username != $row['id']){
-			echo "login failed";
-			echo "<a href='index.php'>CLick here</a>";
+			$_SESSION['a']=1;
+		header('Location:index.php');
 		}
 		elseif($password != $row['password']){
-			echo "login failed";
-			echo "<a href='index.php'>CLick here</a>";
+			$_SESSION['a']=1;
+		header('Location:index.php');
 		}
 		else{
 			$_SESSION['logged_in'] = 3;
 			$_SESSION['username'] = $username;
+			$_SESSION['lawyer'] = $row['lawyer_id'];
 			header('Location:client.php');
 		}
 	}

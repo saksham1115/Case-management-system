@@ -1,7 +1,3 @@
-<?php
-session_start();
-require("check_login.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,9 +34,6 @@ require("check_login.php");
                   <li><a href="admin_delete.php" >Delete Lawyers</a></li>
                   <li><a href="admin_update.php" >Change Password</a></li>
                </ul>
-               <ul class="nav navbar-nav navbar-right">
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
             </div>
          </div>
       </nav>>
@@ -71,8 +64,7 @@ require("check_login.php");
                      </div>
                   <div class='form-group'>
                      <label class="control-label col-xs-4">Type:</label>
-                     <div class="col-xs-8">
-                     <select name = 'employment' class="form-control">
+                     <select name = 'employment' class="control-label col-xs-8">
                         <option value = 'immigration'>Immigration Lawyer</option>
                         <option value = 'family'>Family and Divorce Lawyer</option>
                         <option value = 'government'>Government Lawyer</option>
@@ -80,14 +72,14 @@ require("check_login.php");
                         <option value = 'paralegal'>Paralegal</option>
                         <option value = 'domestic'>Domestic Lawyer</option>
                         <option value = 'estate'>Real Estate Law Attorney</option>
-                     </select></div>
+                     </select>
                      <br />
                      <div class = "control-label col-xs-4"></div>
                      <div class = "control-label col-xs-4">
                      <br />
                      <button type="submit" formaction="insert.php" class="btn btn-primary">Submit</button>
                </form>
-               <button type="submit" formaction="logout.php" class="btn btn-primary">Logout</button>
+               <button type="submit" formaction="logout.php" class="btn btn-primary">logout</button>
                </div>
                <br />
 	</div>
