@@ -39,11 +39,12 @@ $value = mysql_query($sql,$conn);
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="nav navbar-nav">
                   <li class="active"><a href="#" >Home</a></li>
-                  <li><a href="client_register.php" >Register Client</a></li>
+                  <li><a href="client_register.php" >Register Your Client</a></li>
                   <li><a href="update_password.php">Change Password</a></li>
-                  <li><a href="update_case.php" >Update Case History</a></li>
+                  <li><a href="update_case.php" >Update Case Info</a></li>
                   <li><a href="billing.php" >Enter Billing Details</a></li>
                   <li><a href="set_hearing.php">Enter Hearing Date</a></li>
+                  <li><a href="enquiries.php">Your Enquiries</a></li>
                </ul>
                <ul class="nav navbar-nav navbar-right">
                 <li><a href="logout.php">Logout</a></li>

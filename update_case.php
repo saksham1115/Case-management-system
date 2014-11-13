@@ -35,7 +35,7 @@ require('check_login.php');
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="nav navbar-nav">
                   <li><a href="main.php" >Home</a></li>
-                  <li><a href="client_register" >Register Your Client</a></li>
+                  <li><a href="client_register.php" >Register Your Client</a></li>
                   <li><a href="update_password.php">Change Password</a></li>
                   <li class="active"><a href="#" >Update Case History</a></li>
                   <li><a href="billing.php" >Enter Billing Details</a></li>
@@ -50,7 +50,6 @@ require('check_login.php');
 </nav>
 <div class="container">
 	<div class="jumbotron">
-		<h3>Enter case number:</h3>
 			<form method="POST" class='form-horizontal' action="<?php $_PHP_SELF ?>">
                   <div class='form-group'>
 <label class="control-label col-xs-4">Case ID:</label> <div class="col-xs-8"><select class="form-control" name = 'case_id' ><?php 

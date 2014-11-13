@@ -65,6 +65,15 @@ if(isset($_SESSION['logged_in'])){
 	</select><br />
 	</div>
 	</div>
+	<div class = "control-label col-xs-4"></div>
+<div class = "control-label col-xs-4"><h4>
+<?php 
+if(isset($_SESSION['a'])){
+	unset($_SESSION['a']);
+	echo "Login Failed!!!";
+}
+	?>
+</h4></div>
 <div class = "control-label col-xs-4"></div>
 <div class = "control-label col-xs-4">
                      <br />

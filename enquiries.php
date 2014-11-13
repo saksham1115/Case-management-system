@@ -6,19 +6,20 @@ $id = $_SESSION['username'];
 $columns = ['name','email_id','lawyer','query'];
 $sql = "SELECT * FROM VISITOR WHERE lawyer='$id'";
 $value = mysql_query($sql,$conn);
-echo mysql_error();
 $row = mysql_fetch_assoc($value);
-$num = mysql_num_rows($num);
-if($num == 0){
-	echo "no queries";
-}
-else{
 do{
 	echo "<p>";
-	for($i = 0 ; $i < $numFields ; $i++){
-		echo $columns[$i].': '.$rows[$columns[$i]].'<br>';
+	for($i = 0 ; $i < 4 ; $i++){
+		echo $columns[$i].': '.$row[$columns[$i]].'<br>';
 	}
 	echo "</p>";
-}while($rows = mysql_fetch_assoc($value));
-}
+}while($row = mysql_fetch_assoc($value));
 ?>
+<html>
+<head>
+<title>Enquiries</title>
+</head>
+<body>
+	<a href="main.php">Go back</a>
+</body>
+</html>

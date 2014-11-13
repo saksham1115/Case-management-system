@@ -9,6 +9,7 @@ if(isset($_POST['date'])){
 	$priority = $_POST['priority'];
 	$sql = "INSERT INTO CALENDAR (lawyer_id,case_id,date_of_hearing,priority) VALUES ('$id','$case_id','$date','$priority')";
 	$value = mysql_query($sql,$conn);
+  echo mysql_errno();
 }
 ?>
 <html lang="en">

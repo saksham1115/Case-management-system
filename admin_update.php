@@ -8,6 +8,7 @@ if(isset($_POST['curr_pass'])){
 	$re_pass = $_POST['re_pass'];
 	if($new_pass != $re_pass){
 		unset($_POST['curr_pass']);
+    $_SESSION['c']=1;
 		header('Location:admin_update.php');
 	}
 	$id = $_SESSION['username'];
@@ -17,11 +18,14 @@ if(isset($_POST['curr_pass'])){
 	$row = mysql_fetch_assoc($value);
 	if($row['password'] != $password){
 		unset($_POST['curr_pass']);
+    $_SESSION['d']=1;
 		header('Location:admin_update.php');
 	}
 	$sql = "UPDATE ADMIN SET password = '$new_pass' WHERE username = '$id'";
 	$value = mysql_query($sql,$conn);
-	echo mysql_error();
+  if(mysql_error()==0){
+    $_SESSION['e']=1;
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -65,11 +69,11 @@ if(isset($_POST['curr_pass'])){
             </ul>
             </div>
          </div>
-      </nav>>
+      </nav>
 </nav>
 <div class="container">
 	<div class="jumbotron">
-		<h3>Delete your Lawyer</h3>
+		<h3>Change Password</h3>
 	</div>
 	<div class="control-label col-xs-8">
 			<form method="POST" class='form-horizontal' action="<?php $_PHP_SELF ?>">
@@ -81,6 +85,20 @@ if(isset($_POST['curr_pass'])){
 </div></div><div class='form-group'>
 <label class="control-label col-xs-4">Re-enter new password:</label><div class="col-xs-8"> <input class="form-control" name = 're_pass' type = 'password'><br />
 </div></div>
+<?php
+if(isset($_SESSION['c'])){
+  unset($_SESSION['c']);
+  echo "Passwords Do Not Match!!";
+}
+elseif(isset($_SESSION['d'])){
+  unset($_SESSION['d']);
+  echo "Enter Correct Password";
+}
+elseif(isset($_SESSION['e'])){
+  unset($_SESSION['e']);
+  echo "Password Updated";
+}
+?>
 <div class = "control-label col-xs-5"></div>
 	<div class = "control-label col-xs-2">
 	<button type="submit" formaction="<?php $_PHP_SELF ?>" class="btn btn-primary">Submit</button>		

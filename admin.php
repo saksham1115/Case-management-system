@@ -52,7 +52,15 @@ require("check_login.php");
 	<div class="control-label col-xs-8">
 			<form method="POST" class='form-horizontal' action="insert.php">
                   <div class='form-group'>
-                     <label class="control-label col-xs-4">Username:</label><div class="col-xs-8"><input class="form-control" type = 'text' name = 'id'></div><br /><br /><br />
+                     <label class="control-label col-xs-4">Username:</label><div class="col-xs-8"><input class="form-control" type = 'text' name = 'id'></div>
+                   <h5>
+                    <?php 
+                      if(isset($_SESSION['p'])){
+                     unset($_SESSION['p']);
+                     echo "Username Exists";
+                     }
+                     ?>
+                     </h5>
                   </div>
                   <div class='form-group'>
                      <label class="control-label col-xs-4">Name:</label><div class="col-xs-8"><input class="form-control" type = 'text' name = 'name'><br />
@@ -85,9 +93,18 @@ require("check_login.php");
                      <div class = "control-label col-xs-4"></div>
                      <div class = "control-label col-xs-4">
                      <br />
+                     <?php
+                     if(isset($_SESSION['b'])){
+                        unset($_SESSION['b']);
+                        echo "Enter Valid details";
+                     } 
+                     elseif(isset($_SESSION['a'])){
+                        unset($_SESSION['a']);
+                        echo "Submission Successful!!!";
+                     }
+                     ?>
                      <button type="submit" formaction="insert.php" class="btn btn-primary">Submit</button>
                </form>
-               <button type="submit" formaction="logout.php" class="btn btn-primary">Logout</button>
                </div>
                <br />
 	</div>

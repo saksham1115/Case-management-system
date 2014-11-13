@@ -34,7 +34,7 @@ if( mysql_errno() == 0 || mysql_errno() == 1007){
 		   'contact_no INT NOT NULL, '.
 		   'primary key (id))';
 	$value = mysql_query($sql,$conn);
-	echo mysql_errno();
+	echo mysql_errno().mysql_error();
 	$sql = 'CREATE TABLE CASES('.
 		   'id VARCHAR(30) NOT NULL, '.
 		   'lawyer_id VARCHAR(30) references LAWYER(id), '.
@@ -48,7 +48,7 @@ if( mysql_errno() == 0 || mysql_errno() == 1007){
 	       'name VARCHAR(30) NOT NULL, '.
 	       'email_id VARCHAR(30) NOT NULL, '.
 	       'lawyer VARCHAR(30) NOT NULL, '.
-	       'query VARCHAR(130) NOT NULL)';
+	       'query VARCHAR(130) NOT NULL) UNIQUE';
 	$value = mysql_query($sql,$conn);
 	echo mysql_errno();
 	$sql = 'CREATE TABLE CASE_HISTORY('.
@@ -74,6 +74,7 @@ if( mysql_errno() == 0 || mysql_errno() == 1007){
 	       'start_date DATE NOT NULL, '.
 	       'billable_hours DOUBLE NOT NULL, '.
 	       'id VARCHAR(30) NOT NULL, '.
+	       'rate INT NOT NULL,'.
 	       'primary key (id))';
 	$value = mysql_query($sql,$conn);
 	echo  mysql_errno();
@@ -91,11 +92,13 @@ if( mysql_errno() == 0 || mysql_errno() == 1007){
 	echo mysql_errno();
 	$sql = 'CREATE TABLE CALENDAR('.
 		   'lawyer_id VARCHAR(30) references LAWYER(id), '.
-		   'case_id VARCHAR(30) references CASES(id), '.
+		   'case_id VARCHAR(30) UNIQUE, '.
 		   'date_of_hearing DATE NOT NULL, '.
 		   'priority VARCHAR(30) NOT NULL)';
 	$value = mysql_query($sql,$conn);
 	echo mysql_errno();
+	$sql = "INSERT INTO ADMIN (username,password) VALUES ('root','tonystark')";
+	$val = mysql_query($sql,$conn);
 }
 
 ?>

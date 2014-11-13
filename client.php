@@ -31,8 +31,8 @@ $rate = $row['rate'];
 $sql = "SELECT * FROM CALENDAR WHERE case_id= '$case' ";
 $value = mysql_query($sql,$conn);
 $row = mysql_fetch_assoc($value);
-$date = 'To Be Decided';
-$priority = '-';
+$date = $row['date_of_hearing'];
+$priority = $row['priority'];
 if(mysql_num_rows($row) != 0){
 	$date = $row['date_of_hearing'];
 	$priority = $row['priority'];

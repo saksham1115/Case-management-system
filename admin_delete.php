@@ -57,9 +57,17 @@ if(isset($_POST['id'])){
 	</div>
 	<div class="control-label col-xs-8">
 			<form method="POST" class='form-horizontal' action="<?php $_PHP_SELF ?>">
-                  <div class='form-group'>
-	<label class="control-label col-xs-4">Enter ID of the lawyer to be deleted:</label><div class="col-xs-8"> <input type='text' class="form-control" name='id'><br />
-	</div></div>
+   <div class='form-group'>
+<label class="control-label col-xs-4">Case ID:</label> <div class="col-xs-8"><select class="form-control" name = 'id' ><?php 
+$id = $_SESSION['username'];
+$sql = "SELECT id FROM LAWYER ";
+$value = mysql_query($sql,$conn);
+while($row = mysql_fetch_assoc($value)){
+  $case_id = $row['id'];
+  echo "<option value = '$case_id'>$case_id</option>";
+}
+?>
+</select><br /></div>
 	<div class = "control-label col-xs-5"></div>
 	<div class = "control-label col-xs-2">
 	<button type="submit" formaction="<?php $_PHP_SELF ?>" class="btn btn-primary">Submit</button>		

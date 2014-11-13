@@ -12,6 +12,7 @@ if(isset($_POST['date'])){
 	$pass = $_POST['id'];
 	$sql = "INSERT INTO CASE_TRANSACTIONS (lawyer_id,case_id,client_id,start_date,billable_hours,id,rate) VALUES ('$id','$case','$client','$date','$hours','$pass','$rate') ";
 	$value = mysql_query($sql,$conn);
+  echo mysql_error().mysql_errno();
 
 }
 ?>
