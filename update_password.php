@@ -1,5 +1,6 @@
 <?php
 session_start();
+$id = $_SESSION['username'];
 require('check_login.php');
 require('config.php');
 if(isset($_POST['curr_pass'])){
@@ -10,7 +11,6 @@ if(isset($_POST['curr_pass'])){
 		unset($_POST['curr_pass']);
 		header('Location:update_password.php');
 	}
-	$id = $_SESSION['username'];
 	$sql = "SELECT id,password FROM LAWYER WHERE id = '$id'";
 	$value = mysql_query($sql,$conn);
 	echo mysql_error();
@@ -28,7 +28,7 @@ if(isset($_POST['curr_pass'])){
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Legally Right | Admin</title>
+<title>Legally Right | <?php echo $id ?></title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -50,7 +50,7 @@ if(isset($_POST['curr_pass'])){
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <a class="navbar-brand" href="#">Legally Right | Admin</a>
+               <a class="navbar-brand" href="#">Legally Right | <?php echo $id ?></a>
            </div>
            <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="nav navbar-nav">
@@ -70,7 +70,7 @@ if(isset($_POST['curr_pass'])){
 </nav>
 <div class="container">
 	<div class="jumbotron">
-		<h3>Delete your Lawyer</h3>
+		<h3>Change your Password</h3>
 	</div>
 	<div class="control-label col-xs-8">
 			<form method="POST" class='form-horizontal' action="<?php $_PHP_SELF ?>">

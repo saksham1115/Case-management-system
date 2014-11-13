@@ -39,7 +39,7 @@ $value = mysql_query($sql,$conn);
             <div class="collapse navbar-collapse" id="navbarCollapse">
                <ul class="nav navbar-nav">
                   <li class="active"><a href="#" >Home</a></li>
-                  <li><a href="client_register.php" >RegisterClient</a></li>
+                  <li><a href="client_register.php" >Register Client</a></li>
                   <li><a href="update_password.php">Change Password</a></li>
                   <li><a href="update_case.php" >Update Case History</a></li>
                   <li><a href="billing.php" >Enter Billing Details</a></li>
